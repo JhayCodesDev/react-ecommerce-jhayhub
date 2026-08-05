@@ -21,14 +21,30 @@ export function FeaturedProduct() {
         const data = await response.json();
         setProduct(data);
       } catch (error) {
-        setError(error.message);
+        return (
+      <section>
+          <div>
+            <h1 className="not-found text-primary min-h-svh text-4xl font-extrabold md:text-5xl">
+              {setError(error.message)}
+            </h1>
+          </div>
+        </section>
+    )
       }
     }
     fetchProduct();
   }, []);
 
   if (error) {
-    return <h2>{error}</h2>;
+    return (
+      <section>
+          <div>
+            <h1 className="not-found text-primary min-h-svh text-4xl font-extrabold md:text-5xl">
+              {error} products.
+            </h1>
+          </div>
+        </section>
+    )
   }
 
   if (product.length === 0) {
@@ -36,59 +52,61 @@ export function FeaturedProduct() {
   }
 
   return (
-    <div>
-      <h2 className="sub-heading text-primary text-2xl font-bold md:text-3xl">
-        Featured Products
-      </h2>
+    <section>
+      <div>
+        <h2 className="sub-heading text-primary text-2xl font-bold md:text-3xl">
+          Featured Products
+        </h2>
 
-      <div className="grid gap-6 p-3 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
-        {product
-          .filter((product) => selctedId.includes(product.id))
-          .slice()
-          .map((product) => (
-            <div
-              key={product.id}
-              className="surface border-custom justify-around rounded-xl shadow-md"
-            >
-              <img
-                className="product-img"
-                src={product.image}
-                alt={product.title}
-              />
+        <div className="grid gap-6 p-3 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+          {product
+            .filter((product) => selctedId.includes(product.id))
+            .slice()
+            .map((product) => (
+              <div
+                key={product.id}
+                className="surface border-custom justify-around rounded-xl shadow-md"
+              >
+                <img
+                  className="product-img"
+                  src={product.image}
+                  alt={product.title}
+                />
 
-              <h2 className="cust-spacing text-primary m-4 font-semibold sm:text-sm md:text-lg">
-                {product.title}
-              </h2>
+                <h2 className="cust-spacing text-primary m-4 font-semibold sm:text-sm md:text-lg">
+                  {product.title}
+                </h2>
 
-              <h3 className="cust-spacing text-primary m-4 text-xl font-bold">
-                Price: <strong>${product.price}</strong>
-              </h3>
+                <h3 className="cust-spacing text-primary m-4 text-xl font-bold">
+                  Price: <strong>${product.price}</strong>
+                </h3>
 
-              <p className="cust-spacing text-secondary m-4 text-sm font-normal">
-                ⭐<strong>{product.rating.rate}</strong>
-              </p>
+                <p className="cust-spacing text-secondary m-4 text-sm font-normal">
+                  ⭐<strong>{product.rating.rate}</strong>
+                </p>
 
-              <p className="cust-spacing text-secondary m-4 text-sm font-normal">
-                Reviews: <strong>{product.rating.count}</strong>
-              </p>
+                <p className="cust-spacing text-secondary m-4 text-sm font-normal">
+                  Reviews: <strong>{product.rating.count}</strong>
+                </p>
 
-              <div className="link-flex">
-                <Link
-                  onClick={() => addToCart(product)}
-                  className="link-btn btn-primary mx-0 text-base font-semibold"
-                >
-                  <FaCartPlus className="icon-pos" /> Add to Cart
-                </Link>
-                <Link
-                  className="link-btn btn-primary mx-0 text-base font-semibold"
-                  to={`/products/${product.id}`}
-                >
-                  View Details
-                </Link>
+                <div className="link-flex">
+                  <Link
+                    onClick={() => addToCart(product)}
+                    className="link-btn btn-primary mx-0 text-base font-semibold"
+                  >
+                    <FaCartPlus className="icon-pos" /> Add to Cart
+                  </Link>
+                  <Link
+                    className="link-btn btn-primary mx-0 text-base font-semibold"
+                    to={`/products/${product.id}`}
+                  >
+                    View Details
+                  </Link>
+                </div>
               </div>
-            </div>
-          ))}
+            ))}
+        </div>
       </div>
-    </div>
+    </section>
   );
 }

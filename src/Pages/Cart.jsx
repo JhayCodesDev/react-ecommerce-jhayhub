@@ -91,6 +91,7 @@ export function Cart() {
         <h3 className="cust-spacing text-secondary m-4 font-normal sm:text-sm md:text-3xl">
           Total Price: <strong>${totalPrice.toFixed(2)}</strong>
         </h3>
+
         <button className="checkout-btn btn-primary" onClick={checkOut}>
           <MdShoppingCartCheckout className="iconCheck-pos text-4xl" /> Checkout
         </button>

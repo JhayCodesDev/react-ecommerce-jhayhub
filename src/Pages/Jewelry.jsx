@@ -18,29 +18,48 @@ export function Jewelry() {
         const data = await response.json();
         setProduct(data);
       } catch (error) {
-        setError(error.message);
+        return (
+      <section>
+          <div>
+            <h1 className="not-found text-primary min-h-svh text-4xl font-extrabold md:text-5xl">
+              {setError(error.message)}
+            </h1>
+          </div>
+        </section>
+    )
       }
     }
     fetchProduct();
   }, []);
 
   if (error) {
-    return <h2>{error}</h2>;
+    return (
+      <section>
+          <div>
+            <h1 className="not-found text-primary min-h-svh text-4xl font-extrabold md:text-5xl">
+              {error} products.
+            </h1>
+          </div>
+        </section>
+    );
   }
   if (product.length === 0) {
     return <Loading message="Fetching products..." />;
   }
 
   return (
-    <div>
-      <h2 className="sub-heading text-primary text-2xl font-bold md:text-3xl">
-        Jewelry
-      </h2>
-      <div className="grid gap-6 p-3 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
-        {product.map((product) => (
-          <ProductCard key={product.id} product={product} />
-        ))}
+    <section>
+      <div>
+        <h2 className="sub-heading text-primary text-2xl font-bold md:text-3xl">
+          Jewelry
+        </h2>
+        
+        <div className="grid gap-6 p-3 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+          {product.map((product) => (
+            <ProductCard key={product.id} product={product} />
+          ))}
+        </div>
       </div>
-    </div>
+    </section>
   );
 }

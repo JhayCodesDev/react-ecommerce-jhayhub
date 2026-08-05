@@ -97,9 +97,7 @@
 
 .btn-primary {
   background: var(--color-accent);
-
   color: white;
-
   transition: 0.3s ease;
 }
 
@@ -111,9 +109,7 @@
 
 .btn-success {
   background: var(--color-success);
-
   color: white;
-
   transition: 0.3s;
 }
 
@@ -125,9 +121,7 @@
 
 .btn-warning {
   background: var(--color-warning);
-
   color: white;
-
   transition: 0.3s;
 }
 
@@ -139,9 +133,7 @@
 
 .btn-danger {
   background: var(--color-danger);
-
   color: white;
-
   transition: 0.3s;
 }
 
@@ -153,6 +145,7 @@
 
 .nav-link {
   color: var(--color-primary);
+
   transition:
     color 0.3s ease,
     transform 0.3s ease;
@@ -234,6 +227,33 @@
   color: var(--color-primary);
 }
 
+/* Form Fields */
+input {
+  text-align: center;
+}
+
+.input-field {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 1px solid var(--color-border);
+  border-radius: 0.75rem;
+  background: var(--color-surface);
+  color: var(--color-primary);
+  transition: all 0.3s ease;
+}
+
+.input-field:focus {
+  outline: none;
+  border-color: var(--color-accent);
+  box-shadow: 0 0 0 3px
+    color-mix(in oklab, var(--color-accent) 20%, transparent);
+}
+
+input::placeholder {
+  color: var(--color-secondary);
+  text-align: center;
+}
+
 /* PAGE STYLING */
 
 body {
@@ -249,7 +269,7 @@ body {
 }
 
 .jhay-hub-logo {
-  width: 10rem;
+  width: 8rem;
 }
 
 .flex-con {
@@ -298,6 +318,17 @@ body {
   margin-left: 2rem;
 }
 
+.cust-btn {
+  display: block;
+  text-align: center;
+  width: 9rem;
+  margin: 0 auto;
+  padding: 0.5rem;
+  border: 0.5rem;
+  border-radius: 0.5rem;
+  transition: all 300ms;
+}
+
 .link-btn {
   display: block;
   text-align: center;
@@ -311,7 +342,8 @@ body {
   transition: all 300ms;
 }
 
-.link-btn:hover {
+.link-btn:hover,
+.cust-btn:hover {
   transform: scale(1.05);
   cursor: pointer;
 }
@@ -373,6 +405,12 @@ body {
   top: -1rem;
 }
 
+.flex-col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .checkout-con {
   display: flex;
   flex-direction: column;
@@ -406,13 +444,9 @@ body {
   height: 1.5rem;
   background-color: var(--color-page-bg);
   border-radius: 50%;
-}
-
-.alert-msg {
-  width: 100%;
-  text-align: center;
-  background-color: pink;
-  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .icon-pos {
@@ -433,6 +467,11 @@ body {
 
 /* Mobile only */
 @media (max-width: 39.9375rem) {
+  /* jhay-hub logo styling */
+  .jhay-hub-logo {
+    width: 5rem;
+  }
+
   /* hero Styling */
   .hero-message {
     text-align: left;
@@ -477,5 +516,10 @@ body {
 
   .Toastify__toast {
     width: 100%;
+  }
+
+  /* input stylyling */
+  input, input::placeholder {
+    font-size: 0.7rem;
   }
 }
