@@ -21,7 +21,7 @@ export function Hero() {
           Shop Now
         </Link>
 
-        <img src="public/Hero-image-light.jpg" alt="Hero Image" />
+        <img src="/Hero-image-light.jpg" alt="Hero Image" />
       </header>
     </div>
   );

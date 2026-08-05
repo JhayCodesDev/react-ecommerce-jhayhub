@@ -1,8 +1,19 @@
 # 🛍️ JHAY HUB – React E-commerce Application
 
+![React](https://img.shields.io/badge/React-19-blue)
+![Vite](https://img.shields.io/badge/Vite-7-purple)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-4-38BDF8)
+![License](https://img.shields.io/badge/License-MIT-green)
+
 A modern, responsive e-commerce web application built with **React**, **Vite**, and **Tailwind CSS**. The project consumes data from the **Fake Store API** to provide a realistic online shopping experience while demonstrating modern React development practices.
 
 This project was built to strengthen my understanding of React fundamentals, reusable component architecture, state management, routing, API integration, responsive design, and frontend best practices.
+
+---
+
+🌐 Live Demo
+
+🔗 Live Preview: https://jhay-hub.vercel.app
 
 ---
 
@@ -165,13 +176,13 @@ src
 Clone the repository:
 
 ```bash
-git clone <repository-url>
+git clone <https://github.com/JhayCodesDev/react-ecommerce-jhayhub>
 ```
 
 Navigate into the project:
 
 ```bash
-cd E_COMMERCE-REACT-APP
+cd REACT-ECOMMERCE-JHAYHUB
 ```
 
 Install dependencies:

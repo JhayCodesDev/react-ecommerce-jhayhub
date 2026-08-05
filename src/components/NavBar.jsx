@@ -13,8 +13,8 @@ function NavBar() {
   const [open, setOpen] = useState(false);
   const { theme, toggleTheme } = useTheme();
   const { totalItems } = useCart();
-  const LogoDark = "./src/assets/jhay-hub-dark-logo.png";
-  const LogoLight = "./src/assets/jhay-hub-light-logo.png";
+  const LogoDark = "../assets/jhay-hub-dark-logo.png";
+  const LogoLight = "../assets/jhay-hub-light-logo.png";
   const { currentUser, isAuthenticated, logout } = useAuth();
   const navigate = useNavigate();
 
