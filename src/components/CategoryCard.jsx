@@ -11,7 +11,7 @@ export function CategoryCard() {
         <div className="surface border-custom justify-around rounded-xl shadow-md">
           <img
             className="product-img category-img"
-            src="./public/black-headphone.png"
+            src="/black-headphone.png"
             alt="Headphone"
           />
 
@@ -30,7 +30,7 @@ export function CategoryCard() {
         <div className="surface border-custom justify-around rounded-xl shadow-md">
           <img
             className="product-img category-img"
-            src="./public/jewelry.png"
+            src="/jewelry.png"
             alt="Headphone"
           />
 
@@ -49,7 +49,7 @@ export function CategoryCard() {
         <div className="surface border-custom justify-around rounded-xl shadow-md">
           <img
             className="product-img category-img"
-            src="./public/men's-clothing.png"
+            src="/men's-clothing.png"
             alt="Headphone"
           />
 
@@ -68,7 +68,7 @@ export function CategoryCard() {
         <div className="surface border-custom justify-around rounded-xl shadow-md">
           <img
             className="product-img category-img"
-            src="./public/women's-clothing.png"
+            src="/women's-clothing.png"
             alt="Headphone"
           />
 
