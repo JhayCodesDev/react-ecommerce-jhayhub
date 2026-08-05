@@ -8,13 +8,14 @@ import { useCart } from "../context/CartContext";
 import { useAuth } from "../context/AuthContext";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
+import LogoDark from "../assets/jhay-hub-dark-logo.png";
+import LogoLight from "../assets/jhay-hub-light-logo.png";
+
 
 function NavBar() {
   const [open, setOpen] = useState(false);
   const { theme, toggleTheme } = useTheme();
   const { totalItems } = useCart();
-  const LogoDark = "../assets/jhay-hub-dark-logo.png";
-  const LogoLight = "../assets/jhay-hub-light-logo.png";
   const { currentUser, isAuthenticated, logout } = useAuth();
   const navigate = useNavigate();
 
