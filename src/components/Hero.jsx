@@ -1,7 +1,9 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { useTheme } from "../context/ThemeContext";
 
 export function Hero() {
+  const {theme} = useTheme();
   return (
     <div>
       <header>
@@ -21,7 +23,7 @@ export function Hero() {
           Shop Now
         </Link>
 
-        <img src="/Hero-image-light.jpg" alt="Hero Image" />
+        <img src={theme === "light" ? "/Hero-image-light.jpg" : "/Hero-image-dark.jpg"} alt="hero-image"/>
       </header>
     </div>
   );
