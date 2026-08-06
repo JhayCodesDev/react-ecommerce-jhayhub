@@ -5,7 +5,7 @@ export function Hero() {
   return (
     <div>
       <header>
-        <h1 className="hero-message text-primary text-3xl font-extrabold md:text-5xl">
+        <h1 className="hero-message text-primary text-xs font-extrabold md:text-5xl">
           Welcome To <strong className="hero-strong">JHAY HUB</strong>
         </h1>
 

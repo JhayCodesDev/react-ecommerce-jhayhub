@@ -22,7 +22,7 @@ export function Footer() {
           <h2 className="mb-4 text-3xl font-bold">
             <img
               className="jhay-hub-logo"
-              src={theme === "light" ? LIGHT : DARK}
+              src={theme === "light" ? LogoLight : LogoDark}
               alt="Jhay Hub Logo"
             />
           </h2>

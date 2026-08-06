@@ -475,8 +475,7 @@ body {
   /* hero Styling */
   .hero-message {
     text-align: left;
-    max-width: 20rem;
-    font-size: xx-large;
+    max-width: 100%;
   }
 
   .hero-p {
