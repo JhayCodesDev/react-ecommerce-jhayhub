@@ -343,7 +343,8 @@ body {
 }
 
 .link-btn:hover,
-.cust-btn:hover {
+.cust-btn:hover,
+.checkout-btn:hover {
   transform: scale(1.05);
   cursor: pointer;
 }
@@ -518,7 +519,8 @@ body {
   }
 
   /* input stylyling */
-  input, input::placeholder {
+  input,
+  input::placeholder {
     font-size: 0.7rem;
   }
 }
