@@ -9,11 +9,11 @@ import {
 } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { useTheme } from "../context/ThemeContext";
+import LogoDark from "../assets/jhay-hub-dark-logo.png";
+import LogoLight from "../assets/jhay-hub-light-logo.png";
 
 export function Footer() {
   const { theme } = useTheme();
-  const LIGHT = "./src/assets/jhay-hub-light-logo.png";
-  const DARK = "./src/assets/jhay-hub-dark-logo.png";
 
   return (
     <footer className="surface border-custom text-primary mt-20">
