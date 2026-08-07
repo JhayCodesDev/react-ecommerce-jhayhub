@@ -87,11 +87,11 @@ export function Footer() {
             </p>
 
             <a
-              href="mailto:yourname@example.com"
+              href="mailto:jhaycodes.dev@gmail.com"
               className="flex items-center gap-2 transition duration-300 hover:text-blue-500"
             >
               <FaEnvelope />
-              jhaycodes.dev@email.com
+              jhaycodes.dev@gmail.com
             </a>
 
             <p className="flex items-center gap-2">
