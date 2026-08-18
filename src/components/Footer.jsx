@@ -103,7 +103,7 @@ export function Footer() {
               className="footer-contact-link"
             >
               <FaEnvelope aria-hidden="true" />
-              <span>jhaycodes.dev@email.com</span>
+              <span>jhaycodes.dev@gmail.com</span>
             </a>
 
             <p>
