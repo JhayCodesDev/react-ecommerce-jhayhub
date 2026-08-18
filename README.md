@@ -310,7 +310,7 @@ The project focuses on **clean architecture, maintainable code, responsive desig
 ### Connect with Me
 
 * 🐙 **GitHub:** [@JhayCodesDev](https://github.com/JhayCodesDev)
-* 🐦 **Twitter:** [@JhayCode](https://www.twitter.com/JhayCodes)
+* 🐦 **Twitter:** [@JhayCodes](https://www.twitter.com/JhayCodes)
 * 📸 **Instagram:** [@jhaycodes_](https://www.instagram.com/jhaycodes_)
 * 💼 **LinkedIn:** [Joshua Odusanya](https://www.linkedin.com/in/joshua-odusanya-9b67aa292/)
 
