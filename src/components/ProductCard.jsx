@@ -1,50 +1,65 @@
-import { useState, useEffect } from "react";
-import { data, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { FaCartPlus } from "react-icons/fa";
-import { useCart } from "../context/CartContext";
+import { useCart } from "../context/CartContext.jsx";
 
 export function ProductCard({ product }) {
   const { addToCart } = useCart();
 
   return (
-    <section>
-      <div
-        key={product.id}
-        className="surface border-custom justify-around rounded-xl shadow-md"
-      >
-        <img className="product-img" src={product.image} alt={product.title} />
+    <article className="surface border-custom flex h-full flex-col overflow-hidden rounded-xl shadow-md transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">
+      
+      {/* Product Image */}
+      <div className="surface-muted flex aspect-square items-center justify-center border-b border-(--color-border) p-4">
+        <img
+          className="h-full w-full object-contain"
+          src={product.image}
+          alt={product.title}
+        />
+      </div>
 
-        <h2 className="cust-spacing text-primary m-4 font-semibold sm:text-sm md:text-lg">
+      {/* Product Information */}
+      <div className="flex flex-1 flex-col p-5">
+        
+        {/* Category */}
+        <p className="text-secondary mb-2 text-xs font-medium uppercase">
+          {product.category}
+        </p>
+
+        {/* Product Title */}
+        <h2 className="text-primary line-clamp-2 min-h-14 text-lg font-semibold">
           {product.title}
         </h2>
 
-        <h3 className="cust-spacing text-secondary m-4 text-xl font-bold">
-          Price: <strong>${product.price}</strong>
-        </h3>
-
-        <p className="cust-spacing text-secondary m-4 text-sm font-normal">
-          ⭐<strong>{product.rating.rate}</strong>
+        {/* Price */}
+        <p className="text-primary mt-3 text-xl font-bold">
+          ${product.price}
         </p>
 
-        <p className="cust-spacing text-secondary m-4 text-sm font-normal">
-          Reviews: <strong>{product.rating.count}</strong>
-        </p>
+        {/* Rating */}
+        <div className="text-secondary mt-2 flex items-center gap-2 text-sm">
+          <span className="text-warning">⭐</span>
+          <span className="font-semibold">{product.rating.rate}</span>
+          <span>({product.rating.count} reviews)</span>
+        </div>
 
-        <div className="link-flex">
-          <Link
+        {/* Actions */}
+        <div className="mt-auto flex flex-col gap-3 pt-5 sm:flex-row">
+          <button
             onClick={() => addToCart(product)}
-            className="link-btn btn-primary mx-0 text-base font-semibold"
+            className="btn-primary flex min-h-11 flex-1 items-center justify-center gap-2 rounded-lg px-4 py-2 text-sm font-semibold transition-transform duration-200 hover:scale-[1.02] active:scale-[0.98]"
           >
-            <FaCartPlus className="icon-pos" /> Add to Cart
-          </Link>
+            <FaCartPlus />
+            Add to Cart
+          </button>
+
           <Link
-            className="link-btn btn-primary mx-0 text-base font-semibold"
             to={`/products/${product.id}`}
+            className="btn-primary flex min-h-11 flex-1 items-center justify-center rounded-lg px-4 py-2 text-sm font-semibold transition-transform duration-200 hover:scale-[1.02] active:scale-[0.98]"
           >
             View Details
           </Link>
         </div>
       </div>
-    </section>
+    </article>
   );
 }

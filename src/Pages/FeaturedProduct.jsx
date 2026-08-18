@@ -1,110 +1,55 @@
-import { useState, useEffect } from "react";
-import { data } from "react-router-dom";
-import { Link } from "react-router-dom";
-import { Loading } from "../components/Loading";
-import { useCart } from "../context/CartContext";
-import { FaCartPlus } from "react-icons/fa";
+import { useEffect, useState } from "react";
+import { Loading } from "../components/Loading.jsx";
+import { ProductCard } from "../components/ProductCard.jsx";
 
 export function FeaturedProduct() {
-  const selctedId = [1, 3, 7, 8, 11, 20];
+  const selectedId = [1, 3, 7, 8, 11, 20];
+
   const [product, setProduct] = useState([]);
   const [error, setError] = useState("");
-  const { addToCart } = useCart();
 
   useEffect(() => {
     async function fetchProduct() {
       try {
         const response = await fetch("https://fakestoreapi.com/products");
+
         if (!response.ok) {
-          throw new Error("Failed to fetch product");
+          throw new Error("Failed to fetch products");
         }
+
         const data = await response.json();
         setProduct(data);
       } catch (error) {
-        return (
-      <section>
-          <div>
-            <h1 className="not-found text-primary min-h-svh text-4xl font-extrabold md:text-5xl">
-              {setError(error.message)}
-            </h1>
-          </div>
-        </section>
-    )
+        setError(error.message);
       }
     }
+
     fetchProduct();
   }, []);
 
   if (error) {
-    return (
-      <section>
-          <div>
-            <h1 className="not-found text-primary min-h-svh text-4xl font-extrabold md:text-5xl">
-              {error} products.
-            </h1>
-          </div>
-        </section>
-    )
+    return <ErrorMessage message={error} />;
   }
 
   if (product.length === 0) {
     return <Loading message="Fetching products..." />;
   }
 
+  const featuredProducts = product.filter((product) =>
+    selectedId.includes(product.id)
+  );
+
   return (
-    <section>
-      <div>
-        <h2 className="sub-heading text-primary text-2xl font-bold md:text-3xl">
+    <section className="px-4 py-12 sm:px-6 lg:py-16">
+      <div className="mx-auto max-w-7xl">
+        <h2 className="text-primary mb-8 text-center text-2xl font-bold md:text-3xl">
           Featured Products
         </h2>
 
-        <div className="grid gap-6 p-3 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
-          {product
-            .filter((product) => selctedId.includes(product.id))
-            .slice()
-            .map((product) => (
-              <div
-                key={product.id}
-                className="surface border-custom justify-around rounded-xl shadow-md"
-              >
-                <img
-                  className="product-img"
-                  src={product.image}
-                  alt={product.title}
-                />
-
-                <h2 className="cust-spacing text-primary m-4 font-semibold sm:text-sm md:text-lg">
-                  {product.title}
-                </h2>
-
-                <h3 className="cust-spacing text-primary m-4 text-xl font-bold">
-                  Price: <strong>${product.price}</strong>
-                </h3>
-
-                <p className="cust-spacing text-secondary m-4 text-sm font-normal">
-                  ⭐<strong>{product.rating.rate}</strong>
-                </p>
-
-                <p className="cust-spacing text-secondary m-4 text-sm font-normal">
-                  Reviews: <strong>{product.rating.count}</strong>
-                </p>
-
-                <div className="link-flex">
-                  <Link
-                    onClick={() => addToCart(product)}
-                    className="link-btn btn-primary mx-0 text-base font-semibold"
-                  >
-                    <FaCartPlus className="icon-pos" /> Add to Cart
-                  </Link>
-                  <Link
-                    className="link-btn btn-primary mx-0 text-base font-semibold"
-                    to={`/products/${product.id}`}
-                  >
-                    View Details
-                  </Link>
-                </div>
-              </div>
-            ))}
+        <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+          {featuredProducts.map((product) => (
+            <ProductCard key={product.id} product={product} />
+          ))}
         </div>
       </div>
     </section>

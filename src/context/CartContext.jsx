@@ -6,38 +6,42 @@ export const CartContext = createContext();
 export const CartProvider = ({ children }) => {
   const [cart, setCart] = useState(() => {
     const savedCart = localStorage.getItem("cart");
+
     return savedCart ? JSON.parse(savedCart) : [];
   });
 
   function addToCart(product) {
-    toast.success("Product added");
-    const existingProduct = cart.find((item) => item.id === product.id);
+    setCart((prevCart) => {
+      const existingProduct = prevCart.find(
+        (item) => item.id === product.id
+      );
 
-    if (existingProduct) {
-      setCart(
-        cart.map((item) =>
+      if (existingProduct) {
+        return prevCart.map((item) =>
           item.id === product.id
             ? {
                 ...item,
                 quantity: item.quantity + 1,
               }
             : item
-        )
-      );
-    } else {
-      setCart([
-        ...cart,
+        );
+      }
+
+      return [
+        ...prevCart,
         {
           ...product,
           quantity: 1,
         },
-      ]);
-    }
+      ];
+    });
+
+    toast.success("Product added to cart");
   }
 
   function increaseQuantity(id) {
-    setCart(
-      cart.map((item) =>
+    setCart((prevCart) =>
+      prevCart.map((item) =>
         item.id === id
           ? {
               ...item,
@@ -49,8 +53,8 @@ export const CartProvider = ({ children }) => {
   }
 
   function decreaseQuantity(id) {
-    setCart(
-      cart
+    setCart((prevCart) =>
+      prevCart
         .map((item) =>
           item.id === id
             ? {
@@ -64,8 +68,11 @@ export const CartProvider = ({ children }) => {
   }
 
   function removeFromCart(id) {
-    toast.info("Product removed");
-    setCart(cart.filter((item) => item.id !== id));
+    setCart((prevCart) =>
+      prevCart.filter((item) => item.id !== id)
+    );
+
+    toast.info("Product removed from cart");
   }
 
   const totalPrice = cart.reduce(
@@ -73,7 +80,10 @@ export const CartProvider = ({ children }) => {
     0
   );
 
-  const totalItems = cart.reduce((total, item) => total + item.quantity, 0);
+  const totalItems = cart.reduce(
+    (total, item) => total + item.quantity,
+    0
+  );
 
   function checkOut() {
     toast.success("Order placed successfully");

@@ -1,56 +1,73 @@
 import { Truck, ShieldCheck, Star, RotateCcw } from "lucide-react";
 
+const benefits = [
+  {
+    icon: Truck,
+    title: "Free Shipping",
+    description: "Fast and reliable delivery on selected orders.",
+    iconClass: "text-accent",
+  },
+  {
+    icon: ShieldCheck,
+    title: "Secure Payment",
+    description:
+      "Shop safely with trusted and encrypted payment methods.",
+    iconClass: "text-success",
+  },
+  {
+    icon: Star,
+    title: "Premium Quality",
+    description:
+      "Carefully selected products that meet high quality standards.",
+    iconClass: "text-warning",
+  },
+  {
+    icon: RotateCcw,
+    title: "Easy Returns",
+    description:
+      "Hassle-free returns to make your shopping experience worry-free.",
+    iconClass: "text-danger",
+  },
+];
+
 export function WhyChooseUs() {
   return (
-    <section className="px-6 py-16">
+    <section className="px-4 py-12 sm:px-6 lg:py-16">
       <div className="mx-auto max-w-7xl">
-        <h2 className="mb-4 text-center text-4xl font-bold">Why Choose Us?</h2>
+        <h2 className="text-primary mb-4 text-center text-3xl font-bold md:text-4xl">
+          Why Choose Us?
+        </h2>
 
-        <p className="text-primary mx-auto mb-12 max-w-2xl text-center">
+        <p className="text-secondary mx-auto mb-12 max-w-2xl text-center text-base leading-7 md:text-lg">
           We are committed to providing quality products, secure shopping, and
           fast delivery so you can enjoy the best online shopping experience.
         </p>
 
-        <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
-          <div className="surface border-custom rounded-xl p-6 text-center shadow-lg transition-all duration-300 hover:scale-105">
-            <Truck size={50} className="mx-auto mb-4 text-blue-600" />
+        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          {benefits.map((benefit) => {
+            const Icon = benefit.icon;
 
-            <h3 className="mb-2 text-xl font-semibold">Free Shipping</h3>
+            return (
+              <article
+                key={benefit.title}
+                className="surface border-custom flex h-full flex-col items-center rounded-xl p-6 text-center shadow-md transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
+              >
+                <Icon
+                  size={48}
+                  strokeWidth={1.8}
+                  className={`mb-4 ${benefit.iconClass}`}
+                />
 
-            <p className="text-light-page-primary">
-              Fast and reliable delivery on selected orders.
-            </p>
-          </div>
+                <h3 className="text-primary mb-2 text-xl font-semibold">
+                  {benefit.title}
+                </h3>
 
-          <div className="surface border-custom rounded-xl p-6 text-center shadow-lg transition-all duration-300 hover:scale-105">
-            <ShieldCheck size={50} className="mx-auto mb-4 text-green-600" />
-
-            <h3 className="mb-2 text-xl font-semibold">Secure Payment</h3>
-
-            <p className="text-light-page-primary">
-              Shop safely with trusted and encrypted payment methods.
-            </p>
-          </div>
-
-          <div className="surface border-custom rounded-xl p-6 text-center shadow-lg transition-all duration-300 hover:scale-105">
-            <Star size={50} className="mx-auto mb-4 text-yellow-500" />
-
-            <h3 className="mb-2 text-xl font-semibold">Premium Quality</h3>
-
-            <p className="text-light-page-primary">
-              Carefully selected products that meet high quality standards.
-            </p>
-          </div>
-
-          <div className="surface border-custom rounded-xl p-6 text-center shadow-lg transition-all duration-300 hover:scale-105">
-            <RotateCcw size={50} className="mx-auto mb-4 text-red-500" />
-
-            <h3 className="mb-2 text-xl font-semibold">Easy Returns</h3>
-
-            <p className="text-light-page-primary">
-              Hassle-free returns to make your shopping experience worry-free.
-            </p>
-          </div>
+                <p className="text-secondary text-sm leading-6">
+                  {benefit.description}
+                </p>
+              </article>
+            );
+          })}
         </div>
       </div>
     </section>

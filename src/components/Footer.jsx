@@ -16,128 +16,144 @@ export function Footer() {
   const { theme } = useTheme();
 
   return (
-    <footer className="surface border-custom text-primary mt-20">
-      <div className="mx-auto grid max-w-7xl gap-10 px-6 py-14 md:grid-cols-2 lg:grid-cols-4">
-        <div>
-          <h2 className="mb-4 text-3xl font-bold">
+    <footer className="footer surface border-custom text-primary">
+      <div className="footer-grid">
+        {/* Brand */}
+        <div className="footer-brand">
+          <Link to="/" aria-label="JHAYHUB home">
             <img
-              className="jhay-hub-logo"
+              className="footer-logo"
               src={theme === "light" ? LogoLight : LogoDark}
-              alt="Jhay Hub Logo"
+              alt="JHAYHUB Logo"
             />
-          </h2>
+          </Link>
 
-          <p className="text-light-page-primary leading-7">
+          <p className="footer-description text-secondary">
             Shop with confidence. We provide premium products, secure payments
             and fast delivery to customers worldwide.
           </p>
         </div>
 
+        {/* Quick Links */}
         <div>
-          <h3 className="mb-5 text-xl font-semibold">Quick Links</h3>
+          <h3 className="footer-heading">Quick Links</h3>
 
-          <ul className="space-y-3">
+          <ul className="footer-links">
             <li>
-              <Link className="nav-link" to="/">
+              <Link className="footer-link" to="/">
                 Home
               </Link>
             </li>
 
             <li>
-              <Link className="nav-link" to="/products">
+              <Link className="footer-link" to="/products">
                 Products
               </Link>
             </li>
 
             <li>
-              <Link className="nav-link" to="/cart">
+              <Link className="footer-link" to="/cart">
                 Cart
               </Link>
             </li>
 
             <li>
-              <Link className="nav-link" to="/about">
+              <Link className="footer-link" to="/about">
                 About
               </Link>
             </li>
           </ul>
         </div>
 
+        {/* Customer Support */}
         <div>
-          <h3 className="mb-5 text-xl font-semibold">Customer Support</h3>
+          <h3 className="footer-heading">Customer Support</h3>
 
-          <ul className="space-y-3">
-            <li>Help Center</li>
+          <ul className="footer-links">
+            <li>
+              <span>Help Center</span>
+            </li>
 
-            <li>Shipping</li>
+            <li>
+              <span>Shipping</span>
+            </li>
 
-            <li>Returns</li>
+            <li>
+              <span>Returns</span>
+            </li>
 
-            <li>Privacy Policy</li>
+            <li>
+              <span>Privacy Policy</span>
+            </li>
           </ul>
         </div>
 
+        {/* Contact */}
         <div>
-          <h3 className="mb-5 text-xl font-semibold">Contact Us</h3>
+          <h3 className="footer-heading">Contact Us</h3>
 
-          <div className="space-y-4">
-            <p className="flex items-center gap-2">
-              <FaMapMarkerAlt size={18} />
-              Lagos, Nigeria
+          <div className="footer-contact">
+            <p>
+              <FaMapMarkerAlt aria-hidden="true" />
+              <span>Lagos, Nigeria</span>
             </p>
 
             <a
-              href="mailto:yourname@example.com"
-              className="flex items-center gap-2 transition duration-300 hover:text-blue-500"
+              href="mailto:jhaycodes.dev@gmail.com"
+              className="footer-contact-link"
             >
-              <FaEnvelope />
-              jhaycodes.dev@email.com
+              <FaEnvelope aria-hidden="true" />
+              <span>jhaycodes.dev@email.com</span>
             </a>
 
-            <p className="flex items-center gap-2">
-              <FaPhoneAlt size={18} />
-              +234 811 575 6385
+            <p>
+              <FaPhoneAlt aria-hidden="true" />
+              <span>+234 811 575 6385</span>
             </p>
           </div>
         </div>
       </div>
 
-      <hr className="text-light-page-secondary" />
+      <div className="footer-divider" />
 
-      <div className="mx-auto flex max-w-7xl flex-col items-center justify-between px-6 py-6 md:flex-row">
-        <p>© 2026 JhayHub. All rights reserved.</p>
+      <div className="footer-bottom">
+        <p>© 2026 JHAYHUB. All rights reserved.</p>
 
-        <div className="flex gap-6 text-xl">
+        <div className="footer-socials">
           <a
             href="https://github.com/JhayCodesDev"
             target="_blank"
             rel="noopener noreferrer"
+            aria-label="JHAYHUB GitHub"
           >
-            <FaGithub className="transition duration-300 hover:text-gray-400" />
+            <FaGithub aria-hidden="true" />
           </a>
 
           <a
             href="https://www.instagram.com/jhaycodes_"
             target="_blank"
             rel="noopener noreferrer"
+            aria-label="JHAYHUB Instagram"
           >
-            <FaInstagram className="transition duration-300 hover:text-pink-500" />
+            <FaInstagram aria-hidden="true" />
           </a>
 
           <a
             href="https://www.twitter.com/JhayCodes"
             target="_blank"
             rel="noopener noreferrer"
+            aria-label="JHAYHUB Twitter"
           >
-            <FaTwitter className="transition duration-300 hover:text-sky-400" />
+            <FaTwitter aria-hidden="true" />
           </a>
 
           <a
             href="https://www.linkedin.com/in/joshua-odusanya-9b67aa292"
             target="_blank"
             rel="noopener noreferrer"
+            aria-label="JHAYHUB LinkedIn"
           >
-            <FaLinkedin className="transition duration-300 hover:text-blue-500" />
+            <FaLinkedin aria-hidden="true" />
           </a>
         </div>
       </div>

@@ -17,35 +17,21 @@ export function Womens() {
         }
         const data = await response.json();
         setProduct(data);
-      } catch (error) {
-        return (
-      <section>
-          <div>
-            <h1 className="not-found text-primary min-h-svh text-4xl font-extrabold md:text-5xl">
-              {setError(error.message)}
-            </h1>
-          </div>
-        </section>
-    )
-      }
+      }  catch (error) {
+      setError(error.message);
     }
-    fetchProduct();
-  }, []);
+  }
 
-  if (error) {
-    return (
-      <section>
-          <div>
-            <h1 className="not-found text-primary min-h-svh text-4xl font-extrabold md:text-5xl">
-              {error} products.
-            </h1>
-          </div>
-        </section>
-    )
-  }
-  if (product.length === 0) {
-    return <Loading message="Fetching products..." />;
-  }
+  fetchProduct();
+}, []);
+
+if (error) {
+  return <ErrorMessage message={error} />;
+}
+
+if (product.length === 0) {
+  return <Loading message="Fetching products..." />;
+}
 
   return (
     <section>

@@ -18,7 +18,7 @@ export function About() {
         <h1 className="text-primary mb-5 text-5xl font-bold">About Us</h1>
 
         <p className="text-secondary mx-auto max-w-3xl leading-8">
-          Welcome to <span className="font-bold">ShopMate</span>, your trusted
+          Welcome to <span className="font-bold">JHAYHUB</span>, your trusted
           destination for quality products at affordable prices. We believe
           online shopping should be simple, secure, and enjoyable.
         </p>
@@ -32,7 +32,7 @@ export function About() {
 
           <h2 className="mb-4 text-2xl font-bold">Who We Are</h2>
 
-          <p className="text-light-page-secondary leading-7">
+          <p className="text-secondary leading-7">
             We are passionate about connecting customers with premium products
             while delivering outstanding service and unforgettable shopping
             experiences.
@@ -44,7 +44,7 @@ export function About() {
 
           <h2 className="mb-4 text-2xl font-bold">Our Mission</h2>
 
-          <p className="text-light-page-secondary leading-7">
+          <p className="text-secondary leading-7">
             To provide quality products, secure transactions, and reliable
             delivery while ensuring customer satisfaction every single day.
           </p>
@@ -55,7 +55,7 @@ export function About() {
 
           <h2 className="mb-4 text-2xl font-bold">Our Vision</h2>
 
-          <p className="text-light-page-secondary leading-7">
+          <p className="text-secondary leading-7">
             To become one of the world's most trusted online shopping
             destinations known for quality and innovation.
           </p>
@@ -103,12 +103,12 @@ export function About() {
       <div className="text-center">
         <h2 className="mb-5 text-4xl font-bold">Ready to Start Shopping?</h2>
 
-        <p className="text-light-page-secondary mx-auto mb-8 max-w-2xl">
+        <p className="text-secondary mx-auto mb-8 max-w-2xl">
           Explore our carefully selected collection of products and enjoy a
           seamless shopping experience from start to finish.
         </p>
 
-        <Link to="/products" className="link-btn">
+        <Link to="/products" className="link-btn btn-primary">
           Shop Now
         </Link>
       </div>
