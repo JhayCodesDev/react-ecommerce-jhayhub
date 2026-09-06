@@ -9,9 +9,9 @@ export function ProductCard({ product }) {
     <article className="surface border-custom flex h-full flex-col overflow-hidden rounded-xl shadow-md transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">
       
       {/* Product Image */}
-      <div className="surface-muted flex aspect-square items-center justify-center border-b border-(--color-border) p-4">
+      <div className="surface-muted flex flex-col aspect-square items-center justify-center border-b border-(--color-border) p-4">
         <img
-          className="h-full w-full object-contain"
+          className="h-full w-50 object-contain"
           src={product.image}
           alt={product.title}
         />
